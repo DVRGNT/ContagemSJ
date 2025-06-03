@@ -16,7 +16,7 @@ module.exports = async (req, res) => {
 
     if (req.method !== 'GET') {
         return res.status(405).json({ message: 'Method Not Allowed' });
-    }
+    }}
 
 async function getEventData() {
     try {
