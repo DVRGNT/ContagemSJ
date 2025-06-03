@@ -2,6 +2,22 @@ const { GoogleAuth } = require('google-auth-library');
 const { google } = require('googleapis');
 
 // Função para buscar os dados da planilha e fazer as contagens
+module.exports = async (req, res) => {
+    // --- Adicione estes cabeçalhos CORS no INÍCIO da sua função ---
+    res.setHeader('Access-Control-Allow-Origin', 'https://contagem-sj.vercel.app');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS'); // Métodos HTTP permitidos
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type'); // Cabeçalhos permitidos
+
+    // Lidar com requisições OPTIONS (preflight requests)
+    if (req.method === 'OPTIONS') {
+        return res.status(200).end();
+    }
+    // --- Fim dos cabeçalhos CORS ---
+
+    if (req.method !== 'GET') {
+        return res.status(405).json({ message: 'Method Not Allowed' });
+    }
+
 async function getEventData() {
     try {
         const auth = new GoogleAuth({
