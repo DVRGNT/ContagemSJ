@@ -34,8 +34,8 @@ def ler_dados_google_sheet():
         # Substitua 'NomeDaSuaPlanilha' pelo nome exato ou ID da sua planilha
         # Certifique-se que a conta de serviço (do credentials.json) tem permissão para acessar esta planilha
         sheet_name = "GraficoTeste" # COLOQUE O NOME DA SUA PLANILHA AQUI
-        try:    
-            sheet = client.open(sheet_name).pagina1 # Abre a primeira aba (sheet1)
+        try:   
+            sheet = client.open(sheet_name).worksheet("pagina1") # Abre a primeira aba (sheet1)
         except gspread.exceptions.SpreadsheetNotFound:
             print(f"ERRO: Planilha '{sheet_name}' não encontrada. Verifique o nome e se a conta de serviço tem permissão.")
             return None

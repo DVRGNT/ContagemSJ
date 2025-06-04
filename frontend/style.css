@@ -1,44 +1,64 @@
 body {
-    font-family: sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte um pouco mais moderna */
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #f0f0f0;
+    background-color: #000000; /* Fundo do corpo da página bem escuro/preto */
     margin: 0;
+    color: #f0f0f0; /* Cor de texto padrão clara para o corpo */
 }
 
 .status-card {
-    background-color: white;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: left;
-    width: 350px;
+    background-color: #1c1c1e; /* Cor de fundo escura para o card, similar à imagem */
+    padding: 40px; /* Aumentar padding interno */
+    border-radius: 8px; /* Mantém cantos arredondados, se desejar, ou 0px para retos */
+    box-shadow: none; /* Remove a sombra, já que o fundo é escuro */
+    width: 620px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraliza os itens verticalmente dentro do card de altura fixa */
+    box-sizing: border-box; /* Garante que padding não aumente o tamanho total */
 }
 
+/* Oculta o H1 "Status do Evento" para se alinhar mais com o layout da imagem de referência */
 .status-card h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #333;
-    text-align: center;
+    display: none;
 }
 
 .info-item {
-    margin-bottom: 15px;
-    font-size: 18px;
+    display: flex; /* Habilita layout flex para duas colunas (label e valor) */
+    justify-content: space-between; /* Coloca espaço máximo entre label e valor */
+    align-items: center; /* Alinha verticalmente label e valor */
+    margin-bottom: 25px; /* Aumenta o espaço entre os itens de informação */
+    font-size: 22px; /* Tamanho da fonte um pouco maior, como na imagem */
+    border-bottom: 1px solid #3a3a3c; /* Linha separadora sutil entre itens */
+    padding-bottom: 25px; /* Espaço abaixo da linha separadora */
 }
 
-.info-item span:first-child {
-    color: #555;
+.info-item:last-child {
+    margin-bottom: 0; /* Remove margem do último item */
+    border-bottom: none; /* Remove linha separadora do último item */
+    padding-bottom: 0; /* Remove padding do último item se não houver borda */
 }
 
-.info-item span:last-child {
-    font-weight: bold;
-    color: #007bff; /* Azul para os totais, pode ser verde para o timer se desejar */
-    float: right;
+.info-item span:first-child { /* Labels como "DURAÇÃO DO EVENTO:" */
+    color: #a0a0a5; /* Cor um pouco mais suave para os labels */
+    text-transform: uppercase; /* Transforma o texto do label para maiúsculas */
+    font-weight: normal; /* Peso da fonte normal para labels */
+    padding-right: 20px; /* Espaço à direita do label */
 }
 
-/* Para simular o "Erro" em verde como na imagem para o timer, se necessário */
-/* #event-duration.error-placeholder { color: green; } */
-/* #impacted-today.error-placeholder, #impacted-total.error-placeholder { color: #007bff; } */
+.info-item span:last-child { /* Valores como o tempo ou números */
+    color: #ffffff; /* Cor branca para os valores, para destaque */
+    font-weight: bold; /* Mantém os valores em negrito */
+    text-align: right; /* Alinha o texto do valor à direita */
+}
+
+/* Se você quiser que o temporizador (Duração do evento) tenha uma cor diferente, como na imagem de referência (que tem "03:07:08") */
+#event-duration {
+    color: #fff000
+    /* Você pode adicionar uma cor específica aqui se desejar, por exemplo: */
+    /* color: #4caf50;  Verde, se quiser diferenciar */
+}
