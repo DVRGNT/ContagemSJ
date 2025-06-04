@@ -5,7 +5,7 @@ const impactedTodayElement = document.getElementById('impacted-today');
 const impactedTotalElement = document.getElementById('impacted-total');
 
 // URL do seu backend no PythonAnywhere
-const apiUrl = 'https://SEU_USERNAME.pythonanywhere.com/api/impact-data'; // Use HTTPS
+const apiUrl = 'https://gabrielbelo.pythonanywhere.com/api/impact-data'; // Use HTTPS
 
 // --- Lógica do Temporizador (como antes) ---
 const eventStartDate = new Date('2025-01-01T00:00:00Z'); // Sua data de início
