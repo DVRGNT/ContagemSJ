@@ -1,0 +1,44 @@
+body {
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+    margin: 0;
+}
+
+.status-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    width: 350px;
+}
+
+.status-card h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+.info-item {
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.info-item span:first-child {
+    color: #555;
+}
+
+.info-item span:last-child {
+    font-weight: bold;
+    color: #007bff; /* Azul para os totais, pode ser verde para o timer se desejar */
+    float: right;
+}
+
+/* Para simular o "Erro" em verde como na imagem para o timer, se necessário */
+/* #event-duration.error-placeholder { color: green; } */
+/* #impacted-today.error-placeholder, #impacted-total.error-placeholder { color: #007bff; } */
