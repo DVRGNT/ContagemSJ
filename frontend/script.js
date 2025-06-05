@@ -25,7 +25,7 @@ async function fetchData() {
         impactedTodayElement.textContent = data.impactedToday.toLocaleString('pt-BR');
         impactedTotalElement.textContent = data.impactedTotal.toLocaleString('pt-BR');
         peakHourElement.textContent = data.peakHour;
-        topZoneElement.textContent = data.topZoneLastHour;
+        topZoneElement.textContent = data.topZoneByPeople;
 
     } catch (error) {
         console.error("Erro ao buscar dados:", error);
