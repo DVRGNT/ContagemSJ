@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Status do Evento</title>
-    <link rel="stylesheet" href="style.css"> </head><body>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
     <div class="status-card">
         <h1>Status do Evento</h1>
-        <div class="info-item">
-            <span>Duração do evento:</span>
-            <span id="event-duration">Carregando...</span>
-        </div>
+        
         <div class="info-item">
             <span>Pessoas impactadas (hoje):</span>
             <span id="impacted-today">Carregando...</span>
@@ -19,6 +21,15 @@
             <span>Pessoas impactadas (total):</span>
             <span id="impacted-total">Carregando...</span>
         </div>
+        <div class="info-item">
+            <span>Horário de Pico (geral):</span>
+            <span id="peak-hour">Carregando...</span>
+        </div>
+        <div class="info-item">
+            <span>Zona Mais Acessada (última hora):</span>
+            <span id="top-zone">Carregando...</span>
+        </div>
     </div>
-    <script src="script.js"></script> </body>
+    <script src="script.js"></script>
+</body>
 </html>

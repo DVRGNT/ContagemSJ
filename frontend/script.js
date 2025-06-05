@@ -1,25 +1,15 @@
 // Em script.js (hospedado no Vercel)
 
-const eventDurationElement = document.getElementById('event-duration');
+// Elementos do DOM
 const impactedTodayElement = document.getElementById('impacted-today');
 const impactedTotalElement = document.getElementById('impacted-total');
+const peakHourElement = document.getElementById('peak-hour'); // Novo elemento
+const topZoneElement = document.getElementById('top-zone');     // Novo elemento
 
 // URL do seu backend no PythonAnywhere
-const apiUrl = 'https://gabrielbelo.pythonanywhere.com/api/impact-data'; // Use HTTPS
+const apiUrl = 'https://gabrielbelo.pythonanywhere.com/api/impact-data';
 
-// --- Lógica do Temporizador (como antes) ---
-const eventStartDate = new Date('2025-01-01T00:00:00Z'); // Sua data de início
-function updateEventDuration() {
-    const now = new Date();
-    const diffMs = now - eventStartDate;
-    const days = Math.floor(diffMs / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diffMs % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((diffMs % (1000 * 60)) / 1000);
-    eventDurationElement.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-}
-setInterval(updateEventDuration, 1000);
-updateEventDuration();
+// --- Lógica do Temporizador REMOVIDA ---
 
 // --- Lógica para Buscar Dados da Planilha (do Backend) ---
 async function fetchData() {
@@ -27,30 +17,28 @@ async function fetchData() {
     try {
         const response = await fetch(apiUrl);
         if (!response.ok) {
-            // Se o backend retornar um erro específico, podemos tratar
-            if (response.status === 500) {
-                const errorData = await response.json();
-                console.error("Erro do servidor ao buscar dados:", errorData.error || "Erro desconhecido");
-                impactedTodayElement.textContent = "Erro";
-                impactedTotalElement.textContent = "Erro";
-                return;
-            }
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json();
 
+        // Atualiza os elementos com os dados recebidos da API
         impactedTodayElement.textContent = data.impactedToday.toLocaleString('pt-BR');
         impactedTotalElement.textContent = data.impactedTotal.toLocaleString('pt-BR');
+        peakHourElement.textContent = data.peakHour;
+        topZoneElement.textContent = data.topZoneLastHour;
 
     } catch (error) {
         console.error("Erro ao buscar dados:", error);
-        impactedTodayElement.textContent = "Erro"; // Mantém "Erro" se a busca falhar
+        // Define texto de erro para todos os campos se a busca falhar
+        impactedTodayElement.textContent = "Erro";
         impactedTotalElement.textContent = "Erro";
+        peakHourElement.textContent = "Erro";
+        topZoneElement.textContent = "Erro";
     }
 }
 
 // Busca os dados quando a página carrega
 fetchData();
 
-// ATUALIZA OS DADOS A CADA 5 MINUTOS (300000 milissegundos)
+// ATUALIZA OS DADOS A CADA 5 MINUTOS (ou o intervalo que preferir)
 setInterval(fetchData, 5 * 60 * 1000);
