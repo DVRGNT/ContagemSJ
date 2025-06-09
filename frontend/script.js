@@ -7,7 +7,7 @@ const peakHourElement = document.getElementById('peak-hour'); // Novo elemento
 const topZoneElement = document.getElementById('top-zone');     // Novo elemento
 
 // URL do seu backend no PythonAnywhere
-const apiUrl = 'https://DVRGNT_gravata.com/api/impact-data';
+const apiUrl = 'https://DVRGNT.gravata.com/api/impact-data';
 
 // --- Lógica do Temporizador REMOVIDA ---
 
