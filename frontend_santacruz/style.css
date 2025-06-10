@@ -4,7 +4,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #000000; /* Fundo do corpo da página bem escuro/preto */
+    background-color: #3a3a3c; /* Fundo do corpo da página bem escuro/preto */
     margin: 0;
     color: #f0f0f0; /* Cor de texto padrão clara para o corpo */
 }
@@ -13,6 +13,8 @@ body {
     background-color: #1c1c1e; /* Cor de fundo escura para o card, similar à imagem */
     padding: 40px; /* Aumentar padding interno */
     border-radius: 8px; /* Mantém cantos arredondados, se desejar, ou 0px para retos */
+    border-color:#fff000; /* Adiciona uma borda amarela ao redor do card */
+    border-width: 2px; /* Define a largura da borda */
     box-shadow: none; /* Remove a sombra, já que o fundo é escuro */
     width: 620px;
     height: 400px;
