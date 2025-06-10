@@ -7,7 +7,7 @@ from datetime import datetime, timedelta
 import os
     
 app = Flask(__name__)
-CORS(app, resources={r"/api/*": {"origins": "https://contagem-santacruz-sj.vercel.app"}})
+CORS(app, resources={r"/api/*": {"origins": "https://contagem-campina-sj.vercel.app"}})
     
 def ler_dados_google_sheet():
         # ... (Esta função permanece a mesma da versão anterior, lendo a planilha)
