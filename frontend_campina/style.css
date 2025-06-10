@@ -14,8 +14,6 @@ body {
     background-color: #1c1c1e; /* Cor de fundo escura para o card, similar à imagem */
     padding: 40px; /* Aumentar padding interno */
     border-radius: 8px; /* Mantém cantos arredondados, se desejar, ou 0px para retos */
-    border-color:#fff000; /* Adiciona uma borda amarela ao redor do card */
-    border-width: 10px; /* Define a largura da borda */
     box-shadow: none; /* Remove a sombra, já que o fundo é escuro */
     width: 620px;
     height: 400px;
