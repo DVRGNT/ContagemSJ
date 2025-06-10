@@ -41,4 +41,4 @@ async function fetchData() {
 fetchData();
 
 // ATUALIZA OS DADOS A CADA 5 MINUTOS (ou o intervalo que preferir)
-setInterval(fetchData, 5 * 60 * 1000);
+setInterval(fetchData, 1 * 60 * 1000);
