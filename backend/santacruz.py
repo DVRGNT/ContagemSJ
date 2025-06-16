@@ -22,7 +22,7 @@ def ler_dados_google_sheet():
             creds = Credentials.from_service_account_file(creds_path, scopes=scope)
             client = gspread.authorize(creds)
     
-            sheet_name = "GraficoTeste"
+            sheet_name = "radar_santa_cruz"
             sheet = client.open(sheet_name).sheet1
     
             data = sheet.get_all_records()
@@ -64,8 +64,8 @@ def get_impact_data():
         # --- Cálculos de Pessoas e Horário de Pico (permanecem os mesmos) ---
         hoje = datetime.now().date()
         df_hoje = df[df['timestamp'].dt.date == hoje]
-        impactadas_hoje = int(df_hoje['total_detected'].sum())
-        impactadas_total = int(df['total_detected'].sum())
+        impactadas_hoje = int(df_hoje['total_detected'].iloc[-1])
+        impactadas_total = int(df['total_detected'].iloc[-1])  
     
         pico_por_hora = df.groupby(df['timestamp'].dt.hour)['total_detected'].sum()
         if not pico_por_hora.empty:
