@@ -64,7 +64,12 @@ def get_impact_data():
         # --- Cálculos de Pessoas e Horário de Pico (permanecem os mesmos) ---
         hoje = datetime.now().date()
         df_hoje = df[df['timestamp'].dt.date == hoje]
-        impactadas_hoje = int(df_hoje['total_detected'].iloc[-1])
+
+        if not df_hoje.empty:
+            impactadas_hoje = int(df_hoje['total_detected'].iloc[-1])
+        else:
+            impactadas_hoje = "Evento Pausado"
+            
         impactadas_total = int(df['total_detected'].iloc[-1])  
     
         pico_por_hora = df.groupby(df['timestamp'].dt.hour)['total_detected'].sum()

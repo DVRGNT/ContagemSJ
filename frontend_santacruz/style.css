@@ -63,3 +63,53 @@ body {
     /* Você pode adicionar uma cor específica aqui se desejar, por exemplo: */
     /* color: #4caf50;  Verde, se quiser diferenciar */
 }
+
+@media (max-width: 768px) {
+    .status-card {
+        width: 90%; /* Ocupa 90% da largura da tela ao invés de um valor fixo */
+        padding: 30px; /* Reduz um pouco o espaçamento interno */
+    }
+
+    .info-item {
+        font-size: 20px; /* Reduz um pouco a fonte */
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+    }
+}
+
+
+/* --- Telas de Celular (até 600px de largura) --- */
+@media (max-width: 600px) {
+    body {
+        /* Alinha o card ao topo em telas pequenas, o que é mais natural */
+        align-items: flex-start;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .status-card {
+        width: 95%; /* Ocupa quase toda a tela */
+        padding: 20px; /* Menos espaçamento interno */
+        min-height: 0; /* Remove a altura mínima para se ajustar ao conteúdo */
+    }
+
+    .info-item {
+        /* MUDANÇA PRINCIPAL: Empilha o label e o valor verticalmente */
+        flex-direction: column; /* Coloca um item embaixo do outro */
+        align-items: flex-start; /* Alinha ambos à esquerda */
+        font-size: 18px; /* Fonte menor para caber melhor */
+        padding-bottom: 15px;
+        margin-bottom: 15px;
+    }
+
+    .info-item span:first-child {
+        /* Remove o padding que não é mais necessário e adiciona espaço embaixo */
+        padding-right: 0;
+        margin-bottom: 8px; /* Espaço entre o label (ex: "DURAÇÃO") e seu valor */
+    }
+
+    .info-item span:last-child {
+        /* Alinha o valor à esquerda, já que agora ele está embaixo do label */
+        text-align: left;
+    }
+}
