@@ -4,12 +4,10 @@
 const impactedTodayElement = document.getElementById('impacted-today');
 const impactedTotalElement = document.getElementById('impacted-total');
 const peakHourElement = document.getElementById('peak-hour'); // Novo elemento
-const topZoneElement = document.getElementById('top-zone');     // Novo elemento
 
 // URL do seu backend no PythonAnywhere
 const apiUrl = 'https://santacruz.visionariadivergente.space/api/impact-data';
 
-// --- Lógica do Temporizador REMOVIDA ---
 
 // --- Lógica para Buscar Dados da Planilha (do Backend) ---
 async function fetchData() {
@@ -25,7 +23,6 @@ async function fetchData() {
         impactedTodayElement.textContent = data.impactedToday.toLocaleString('pt-BR');
         impactedTotalElement.textContent = data.impactedTotal.toLocaleString('pt-BR');
         peakHourElement.textContent = data.peakHour;
-        topZoneElement.textContent = data.topZoneByPeople;
 
     } catch (error) {
         console.error("Erro ao buscar dados:", error);
@@ -33,7 +30,6 @@ async function fetchData() {
         impactedTodayElement.textContent = "Erro";
         impactedTotalElement.textContent = "Erro";
         peakHourElement.textContent = "Erro";
-        topZoneElement.textContent = "Erro";
     }
 }
 
