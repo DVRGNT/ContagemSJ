@@ -7,7 +7,7 @@ from datetime import datetime, timedelta
 import os
 
 app = Flask(__name__)
-CORS(app, resources={r"/api/*": {"origins": "https://contagem-gravata-sj-dvrgnts-projects.vercel.app"}})
+CORS(app, resources={r"/api/*": {"origins": "https://contagem-sj.vercel.app"}})
 
 def ler_dados_google_sheet():
         # ... (Esta função permanece a mesma da versão anterior, lendo a planilha)
@@ -22,7 +22,7 @@ def ler_dados_google_sheet():
             creds = Credentials.from_service_account_file(creds_path, scopes=scope)
             client = gspread.authorize(creds)
 
-            sheet_name = "GraficoTeste"
+            sheet_name = "radar_gravata_interno"
             sheet = client.open(sheet_name).sheet1
 
             data = sheet.get_all_records()
